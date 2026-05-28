@@ -1,3 +1,4 @@
+#ex 28
 class Produto: #Cria a classe Produto
     def __init__(self, nome, preco): #Utiliza um método construtor para definir a classe, com nome e preço
         self.nome = nome #Define a variável nome
@@ -14,7 +15,7 @@ def cadastrar_produto(): #Cria a função cadastrar produto, para ser utilizada 
     while True: #Cria um laço de repetição para validar os inputs
         nome = input("Digite o nome do produto: ") #Pede o nome do produto ao usuário
         try: #Usa tratamento de erros para validar os inputs
-            preco = float(input("Digite o preço do produto: ")) #Pede o preço do produto e converte para float
+            preco = float(input("Digite o preço do produto: ").replace(",", ".")) #Pede o preço do produto, substitui virgula para ponto e converte para float
             if preco <= 0: #Se o preço for menor ou igual a zero,
                 print("Erro! O produto não deve ter preço 0 ou negativo.") #Printa que o produto não pode ter preço 0 ou negativo.
                 continue #Volta pro loop
@@ -46,8 +47,8 @@ def comprar_produto(): #Cria a função de comprar produto
             return #Encerra a função
 
         try: #Tratamento de erros para inputs
-            num = int(input("\nDigite o número do produto: ")) #Pede o número do produto e converte para inteiro
-            if num < 0 or num >= len(produtos): #Se o número for menor que 0, ou for maior que o número de produtos,
+            num = int(input("\nDigite o índice do produto: ")) #Pede o índice do produto e converte para inteiro
+            if num < 0 or num >= len(produtos): #Se o índice for menor que 0, ou for maior que o número de produtos,
                 print("O produto não existe.") #Printa que o produto não existe
                 continue #Volta o loop
         except ValueError: #Se o input der erro de valor
